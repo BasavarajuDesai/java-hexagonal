@@ -20,7 +20,7 @@
     <dependencies>
         <dependency>
             <groupId>com.poetry</groupId>
-            <artifactId>infra</artifactId>
+            <artifactId>domain</artifactId>
             <version>${parent.version}</version>
         </dependency>
         <!-- The intention of the domain is to keep only the business logic specific to the domain. I am trying to avoid a lot of dependency with other frameworks and libraries i.e. keeping it loosely coupled -->

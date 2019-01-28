@@ -1,5 +1,7 @@
 package com.poetry.domain;
 
+import com.poetry.port.ObtainPoem;
+import com.poetry.port.RequestVerse;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -32,11 +34,11 @@ public class PoetryTest {
 
     @Test
     @DisplayName("Should be able to get verses when asked for poetry from a poetry library")
-    public void should_give_verses_when_asked_for_poetry_from_library(@Mock PoetryLibrary poetryLibrary) {
+    public void should_give_verses_when_asked_for_poetry_from_library(@Mock ObtainPoem obtainPoem) {
         // Stub
-        Mockito.lenient().when(poetryLibrary.getMeSomePoetry()).thenReturn("I want to sleep\\r\\nSwat the flies\\r\\nSoftly, please.\\r\\n\\r\\n-- Masaoka Shiki (1867-1902)");
+        Mockito.lenient().when(obtainPoem.getMeSomePoetry()).thenReturn("I want to sleep\\r\\nSwat the flies\\r\\nSoftly, please.\\r\\n\\r\\n-- Masaoka Shiki (1867-1902)");
         // hexagon
-        RequestVerse poetryReader = new PoetryReader(poetryLibrary);
+        RequestVerse poetryReader = new PoetryReader(obtainPoem);
         String verses = poetryReader.giveMeSomePoetry();
         Assertions.assertEquals("I want to sleep\\r\\nSwat the flies\\r\\nSoftly, please.\\r\\n\\r\\n-- Masaoka Shiki (1867-1902)", verses);
     }
