@@ -6,8 +6,18 @@ package com.poetry.domain;
  * @author <a href="mailto:paul58914080@gmail.com">Paul Williams</a>
  */
 public class PoetryReader implements RequestVerse {
+    private PoetryLibrary poetryLibrary;
+
+    public PoetryReader() {
+        this(new HardcodedPoetryLibrary());
+    }
+
+    public PoetryReader(PoetryLibrary poetryLibrary) {
+        this.poetryLibrary = poetryLibrary;
+    }
+
     @Override
     public String giveMeSomePoetry() {
-        return "If you could read a leaf or tree\\r\\nyou’d have no need of books.\\r\\n-- © Alistair Cockburn (1987)";
+        return poetryLibrary.getMeSomePoetry();
     }
 }
