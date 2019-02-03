@@ -12,7 +12,8 @@ public class PoetryReader implements RequestVerse {
     private ObtainPoem obtainPoem;
 
     public PoetryReader() {
-        this(new HardcodedPoem());
+        this(new ObtainPoem() {
+        });
     }
 
     public PoetryReader(ObtainPoem obtainPoem) {
@@ -22,12 +23,5 @@ public class PoetryReader implements RequestVerse {
     @Override
     public String giveMeSomePoetry() {
         return obtainPoem.getMeSomePoetry();
-    }
-
-    private static class HardcodedPoem implements ObtainPoem {
-        @Override
-        public String getMeSomePoetry() {
-            return "If you could read a leaf or tree\\r\\nyoud have no need of books.\\r\\n-- © Alistair Cockburn (1987)";
-        }
     }
 }

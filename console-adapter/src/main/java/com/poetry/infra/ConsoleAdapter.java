@@ -11,6 +11,11 @@ public class ConsoleAdapter {
     private RequestVerse poetryReader;
     private WriteLine publicationStrategy;
 
+
+    public ConsoleAdapter(RequestVerse poetryReader) {
+        this(poetryReader, new WriteLine() {});
+    }
+
     public ConsoleAdapter(RequestVerse poetryReader, WriteLine publicationStrategy) {
         this.poetryReader = poetryReader;
         this.publicationStrategy = publicationStrategy;

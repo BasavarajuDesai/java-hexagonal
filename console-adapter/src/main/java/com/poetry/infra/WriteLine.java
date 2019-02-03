@@ -6,5 +6,7 @@ package com.poetry.infra;
  * @author <a href="mailto:paul58914080@gmail.com">Paul Williams</a>
  */
 public interface WriteLine {
-    void writeLine(String text);
+    default void writeLine(String text) {
+        System.out.println(text);
+    }
 }

@@ -6,5 +6,7 @@ package com.poetry.port;
  * @author <a href="mailto:paul58914080@gmail.com">Paul Williams</a>
  */
 public interface ObtainPoem {
-    String getMeSomePoetry();
+    default String getMeSomePoetry() {
+        return "If you could read a leaf or tree\r\nyoud have no need of books.\r\n-- © Alistair Cockburn (1987)";
+    }
 }
