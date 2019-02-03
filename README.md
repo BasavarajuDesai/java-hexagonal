@@ -45,3 +45,7 @@ I was greatly influenced when I saw the video in YouTube about Alistair's hexago
 - https://softwarecampament.wordpress.com/portsadapters/
 - https://beyondxscratch.com/2017/08/19/decoupling-your-technical-code-from-your-business-logic-with-the-hexagonal-architecture-hexarch/
 
+### Want to try more ?
+
+- [Another kata](http://matteo.vaccari.name/blog/archives/154)
+
