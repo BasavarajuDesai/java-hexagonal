@@ -13,17 +13,9 @@
     </parent>
     <properties>
         <java.version>1.8</java.version>
-        <lombok.version>1.18.4</lombok.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
     <dependencies>
-        <!-- The intention of the domain is to keep only the business logic specific to the domain. I am trying to avoid a lot of dependency with other frameworks and libraries i.e. keeping it loosely coupled -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-            <optional>true</optional>
-        </dependency>
     </dependencies>
 </project>

@@ -1,10 +1,10 @@
 package com.poetry.domain;
 
 import com.poetry.infra.ConsoleAdapter;
+import com.poetry.infra.PoetryLibraryFileAdapter;
 import com.poetry.infra.WriteLine;
 import com.poetry.port.ObtainPoem;
 import com.poetry.port.RequestVerse;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,6 +13,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Created by Paul
@@ -31,7 +33,7 @@ public class PoetryTest {
          */
         RequestVerse poetryReader = new PoetryReader(); // the poem is hard coded
         String verses = poetryReader.giveMeSomePoetry();
-        Assertions.assertEquals("If you could read a leaf or tree\r\nyoud have no need of books.\r\n-- © Alistair Cockburn (1987)", verses);
+        assertEquals("If you could read a leaf or tree\r\nyoud have no need of books.\r\n-- Alistair Cockburn (1987)", verses);
     }
 
     @Test
@@ -42,7 +44,7 @@ public class PoetryTest {
         // hexagon
         RequestVerse poetryReader = new PoetryReader(obtainPoem);
         String verses = poetryReader.giveMeSomePoetry();
-        Assertions.assertEquals("I want to sleep\r\nSwat the flies\r\nSoftly, please.\r\n\r\n-- Masaoka Shiki (1867-1902)", verses);
+        assertEquals("I want to sleep\r\nSwat the flies\r\nSoftly, please.\r\n\r\n-- Masaoka Shiki (1867-1902)", verses);
     }
 
     @Test
@@ -56,6 +58,14 @@ public class PoetryTest {
         consoleAdapter.ask();
         // Notice the extra "Poem:"
         Mockito.verify(publicationStrategy, Mockito.times(1)).writeLine("Poem: I want to sleep\r\nSwat the flies\r\nSoftly, please.\r\n\r\n-- Masaoka Shiki (1867-1902)");
+    }
+
+    @Test
+    public void should_give_verses_when_asked_for_poetry_with_the_support_of_the_file_adapter() {
+        PoetryLibraryFileAdapter poetryFileAdapter = new PoetryLibraryFileAdapter(PoetryTest.class.getClassLoader().getResource("poem.txt").getPath());
+        RequestVerse requestVerse = new PoetryReader(poetryFileAdapter);
+        String verses = requestVerse.giveMeSomePoetry();
+        assertEquals("Twinkle Twinkle Little Star !", verses);
     }
 }
 
