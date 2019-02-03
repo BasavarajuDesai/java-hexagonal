@@ -1,23 +1,47 @@
 # Hexagonal This
 
-## [ ] Kata - 1
-
-- The left side port for test for requesting poetry. The left-side adapter is both the unit test framework and the test calling the port
-- The domain is hardcoded. This very first version of the business logic returns an hard-coded result.
-- The right side is yet to be instantiated (blank) 
+I was greatly influenced when I saw the video in YouTube about Alistair's hexagonal architecture. Big shout out to **Alistair Cockburn** for beautifully explaining the port and adapter's pattern (a.k.a hexagonal architecture). I loved it just because of its separation of concerns which enables high scalability and helping me introduced teh plug and play concept. I wanted to try out the same KATA as **Thomas PIERRAIN** (again impressed with TDD and being bullet proof) while watching the video but with Java. 
 
 
-<!-- 
-2. Write another acceptance test with the simplest possible __right-side adapter__: a stub for the new right-side port: __IObtainPoems__ and its unique __GetAPoem()__ method/verb.
+## KATA - 1
 
-3. Write another acceptance test to test-drive the usage of __a new Console (app) adapter__
-    - Here, we need to mock the Console.WriteLine calls by introducing a ICanWriteLines strategy. This mock will assert that it has received the proper call after __GiveMeSomePoetry__ is called.
-    - Proper time to illustrate the 3 steps initialization of the Hexagonal Architecture (i. Instantiate the "I need to go out" ports and adapters     ii. Instantiate the PoetryReader hexagon     iii. Instantiate the "I need to go in" ports and adapter)
-    - Introduce here an "hexagon" wrapper onto the business logic (to explicit the architectural pattern for the years to come?)
+- Write the left side port for test for requesting poetry i.e. **`RequestVerse`**.
+- Write the domain i.e. **`PoetryReader`** which can be hardcoded. This very first version of the business logic returns an hard-coded result.
 
+## KATA - 2
 
-4. Write a CONSOLE application (embedding the right-side mock) to __get end-users feedbacks about the way we will soon ask questions to the system__
-    - Alistair's feedback (*playing the end-user*) is that we need to have other poems than the hard-coded one.
+- Write the right side port **`ObtainPoem`** with adapters i.e. test which fetches the poem using stubs.
 
-5. Test drive __a right-side PoemFileAdapter__ that will return the content of a file knowing its path (file being: Rimbaud.txt). 
--->
+## KATA - 3
+
+- Write a **`ConsoleAdapter`**(left side) which could write to the console (default) as the default publication strategy.
+
+## KATA - 4
+
+- Write a **`Console`** application for the end user.
+
+## KATA - 5
+
+- Write a **`PoemFileAdapter`** (right side adapter) that will return the content by reading the file.
+
+## References
+
+### YouTube Videos
+
+- [Alistair in the "Hexagone" 1/3](https://www.youtube.com/watch?v=th4AgBcrEHA)
+- [Alistair in the "Hexagone" 2/3](https://www.youtube.com/watch?v=iALcE8BPs94)
+- [Alistair in the "Hexagone" 3/3](https://www.youtube.com/watch?v=DAe0Bmcyt-4)
+
+### KATA in .Net
+
+- [hexagonalThis](https://github.com/tpierrain/hexagonalThis)
+
+### Spring example
+
+- [spring-hexagonal-example](https://github.com/gshaw-pivotal/spring-hexagonal-example)
+
+### Good reads
+
+- https://softwarecampament.wordpress.com/portsadapters/
+- https://beyondxscratch.com/2017/08/19/decoupling-your-technical-code-from-your-business-logic-with-the-hexagonal-architecture-hexarch/
+
