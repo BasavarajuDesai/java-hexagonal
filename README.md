@@ -1,6 +1,6 @@
 # Hexagonal This
 
-I was greatly influenced when I saw the video in YouTube about Alistair's hexagonal architecture. Big shout out to **Alistair Cockburn** for beautifully explaining the port and adapter's pattern (a.k.a hexagonal architecture). I loved it just because of its separation of concerns which enables high scalability and helping me introduced the plug and play concept. I wanted to try out the same KATA as **Thomas PIERRAIN** (again impressed with TDD and being bullet proof) while watching the video but with Java. 
+I was greatly influenced when I saw the video in YouTube about Alistair's hexagonal architecture. Big shout out to **Alistair Cockburn** for beautifully explaining the port and adapter's pattern (a.k.a hexagonal architecture). I loved it just because of its separation of concerns which enables high scalability and helping me introduce the plug and play concept. I wanted to try out the same KATA as **Thomas PIERRAIN** (again impressed with TDD and being bullet proof) while watching the video but with Java. 
 
 
 ## KATA - 1
